@@ -1,8 +1,12 @@
 // Default NextJS imports
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 
-//extras
-import { MongoClient } from 'mongodb';
+//import configs
+import config from "../../config/config.json";
+
+//Services
+import { mongoConnection } from "../../services/basic.service"
+import { IntegerType } from 'mongodb';
 
 const driverslist: NextPage = (props: any) => {
     return(
@@ -13,19 +17,17 @@ const driverslist: NextPage = (props: any) => {
 }
 
 export const getStaticProps: GetStaticProps = async () =>{
-
-    const mongoClient = new MongoClient(
-        'mongodb+srv://nikhilesh3208:YhHVeEkHZaxNgYkO@f1drivers.b7fqg.mongodb.net/formula1?retryWrites=true&w=majority&appName=f1drivers'
+    const page = "drivers";
+    const data = mongoConnection(
+        process.env.NEXT_PUBLIC_CLIENT_ID as string ,
+        process.env.NEXT_PUBLIC_CLIENT_PASSWORD as string,
+        process.env.NEXT_PUBLIC_CLIENT_PROJECT as string,
+        process.env.NEXT_PUBLIC_CLIENT_DBNAME as string,
+        page 
     );
-
-    const data = await mongoClient.db().collection('drivers').find({}).toArray();
-
-    console.log("the data is " , data[0])
-
-
     return {
         props:{
-            driverslist: "test"
+            driverslist: "test" || null
         }
     }
 }
