@@ -9,12 +9,14 @@ export const ProfileCard: React.FunctionComponent<ProfileCardProps> = ({
     title
 }) =>{
     return(
-        <div>
-            {title}
-        </div>
+        <Stylewrapper>
+           <h2 className="title">{title}</h2>
+        </Stylewrapper>
     )
 }
 
 const Stylewrapper = styled.div`
-    
+    .title{
+        color: var(--teal-dark);
+    }
 `
