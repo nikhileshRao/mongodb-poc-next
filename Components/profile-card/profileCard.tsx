@@ -1,12 +1,20 @@
 import React from "react";
+import styled from "styled-components";
 
-export interface profileCardProps {
+export interface ProfileCardProps {
+    title ?: string
 }
 
-export const profileCard: React.FunctionComponent<profileCardProps> = ({}) =>{
+export const ProfileCard: React.FunctionComponent<ProfileCardProps> = ({
+    title
+}) =>{
     return(
         <div>
-            test
+            {title}
         </div>
     )
 }
+
+const Stylewrapper = styled.div`
+    
+`

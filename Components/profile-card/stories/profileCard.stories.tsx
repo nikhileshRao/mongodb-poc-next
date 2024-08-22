@@ -1,13 +1,13 @@
-import { profileCard } from "../profileCard";
-
-// export default {
-//     title: "Components/profileCard",
-//     component: ProfileCard,
-// };
-
-// export const profileCard ={}
+import { ProfileCard } from "../profileCard";
+import profileCardData from "../stories/profileCard.json"
 
 export default {
     title: "Components/ProfileCard",
-    Component: profileCard
+    component: ProfileCard,
+}
+
+export const profileCard ={
+    args:{
+        title: profileCardData.title
+    }
 }
