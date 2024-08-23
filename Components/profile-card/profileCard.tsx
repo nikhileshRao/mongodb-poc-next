@@ -60,6 +60,7 @@ const Stylewrapper = styled.div`
     }
     .profilecard-namecontainer{
         margin-left: 20px;
+        margin-top: 10px;
         .profilecard-namecontainer-lname{
             margin-top: 0px;
         }
@@ -83,7 +84,7 @@ const Stylewrapper = styled.div`
         color: var(--f1-white);
         font-family: var(--font-play);
         position: absolute;
-        bottom: 0px;
+        bottom: 5%;
         left: 50%;
         transform: translateX(-50%);
     }
