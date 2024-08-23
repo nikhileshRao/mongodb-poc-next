@@ -2,7 +2,9 @@
 
 import { Fragment } from "react";
 import { createGlobalStyle } from "styled-components";
-import rootColorStyles  from "../public/styles/color.ts"
+import rootColorStyles  from "../public/styles/color.ts";
+import { FontStyles } from "../public/styles/fontStyle.ts";
+import { typoStyles } from "../public/styles/typography.ts";
 
 const preview = {
   parameters: {
@@ -17,12 +19,16 @@ const preview = {
 
 const SiteGlobalStyle = createGlobalStyle`
   ${rootColorStyles}
+  ${FontStyles}
 `;
 
 const styles = (Story, context) => {
   return (
     <Fragment>
       <SiteGlobalStyle />
+      <style jsx global>
+        {typoStyles}
+      </style>
       <Story {...context} />
     </Fragment>
   );
