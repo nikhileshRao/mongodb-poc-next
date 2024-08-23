@@ -20,7 +20,7 @@ export const ProfileCard: React.FunctionComponent<ProfileCardProps> = ({
     constructor
 }) =>{
     return(
-        <Stylewrapper className="profilecard">
+        <Stylewrapper className="profilecard" data-cy="Profile-Card">
             <div className="profilecard-namecontainer">
                 <p className="profilecard-namecontainer-fname">{firstName}</p>
                 <p className="profilecard-namecontainer-lname">{lastName}</p>

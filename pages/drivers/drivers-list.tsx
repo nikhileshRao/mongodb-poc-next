@@ -1,20 +1,27 @@
 // Default NextJS imports
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 
-//import configs
-import config from "../../config/config.json";
+//importing components
+import { ProfileCard } from "../../Components/profile-card/profileCard";
+import styled from "styled-components";
 
 //Services
 import { mongoConnection } from "../../services/basic.service"
-import { IntegerType } from 'mongodb';
 
 const driverslist: NextPage = (props: any) => {
+    const { driverslist } = props;
     return(
-        <div>
-            test
-        </div>
+        <Stylewrapper className='drivers-list'>
+            <ProfileCard {...driverslist}/>
+        </Stylewrapper>
     )
 }
+
+const Stylewrapper = styled.div`
+   &.drivers-list{
+        
+    }
+`
 
 export const getStaticProps: GetStaticProps = async () =>{
     const page = "drivers";
@@ -25,9 +32,19 @@ export const getStaticProps: GetStaticProps = async () =>{
         process.env.NEXT_PUBLIC_CLIENT_DBNAME as string,
         page 
     );
+
+    const obj ={
+        "firstName": "Max",
+        "lastName" : "Verstappen",
+        "image" : {
+            "url":"https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png",
+            "alt": "Max Verstappen"
+        },
+        "constructor" : "Red Bull Racing"
+    }
     return {
         props:{
-            driverslist: "test" || null
+            driverslist: obj || null
         }
     }
 }
