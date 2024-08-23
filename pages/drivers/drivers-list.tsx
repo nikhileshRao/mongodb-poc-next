@@ -12,14 +12,30 @@ const driverslist: NextPage = (props: any) => {
     const { driverslistProps } = props;
     return(
         <Stylewrapper className='drivers-list'>
-            <ProfileCard {...driverslistProps}/>
+            <div className='drivers-list-profile'>
+                {driverslistProps.map((driver : any, key) => (
+                    <ProfileCard {...driver}/>
+                ))}
+            </div>
         </Stylewrapper>
     )
 }
 
 const Stylewrapper = styled.div`
    &.drivers-list{
-        
+        .drivers-list-profile{
+            @media (min-width: 992px) {
+                display: flex;
+                flex-direction: row;
+            }
+            .profilecard{
+                margin: 0 auto;
+                margin-top: 10%;
+                @media (min-width: 992px) {
+                    margin: unset;
+                }
+            }
+        }
     }
 `
 

@@ -4,5 +4,5 @@ export const getDriverList = async (userID:string, mongoPW:string, projectName:s
     const data = await mongoConnection(userID, mongoPW, projectName, dbName, collection);
 
     const driversListProps = data[0]?.drivers
-    return driversListProps[0];
+    return driversListProps;
 }
