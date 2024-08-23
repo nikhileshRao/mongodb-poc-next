@@ -2,7 +2,9 @@ import { css } from 'styled-components';
 
 const rootColorStyles = css`
     :root{
-        --teal-dark: #00818A;
+        --f1-red: #e10600;
+        --f1-dark-red: #7A0000; 
+        --f1-white: #FFFFFF;
     }
 `
 

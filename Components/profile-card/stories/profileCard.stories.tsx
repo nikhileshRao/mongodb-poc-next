@@ -8,6 +8,9 @@ export default {
 
 export const profileCard ={
     args:{
-        title: profileCardData.title
+        firstName: profileCardData?.firstName,
+        lastName: profileCardData?.lastName,
+        image : profileCardData?.image,
+        constructor: profileCardData?.constructor
     }
 }
