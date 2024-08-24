@@ -6,6 +6,5 @@ export const mongoConnection = async (userID:string, mongoPW:string, projectName
     );
 
     const data = await mongoClient.db().collection(collection).find({}).toArray();
-    console.log("the data is " , data[0])
     return data   
 }

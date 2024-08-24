@@ -6,6 +6,8 @@ export interface ProfileCardProps {
     lastName ?: string
     image ?: DriverImageProps
     constructor ?: string
+    flag ?: DriverImageProps
+    driverNumber ?: number
 }
 
 export interface DriverImageProps{
@@ -17,13 +19,21 @@ export const ProfileCard: React.FunctionComponent<ProfileCardProps> = ({
     firstName,
     lastName,
     image,
-    constructor
+    constructor,
+    flag,
+    driverNumber
 }) =>{
     return(
         <Stylewrapper className="profilecard" data-cy="Profile-Card">
             <div className="profilecard-namecontainer">
                 <p className="profilecard-namecontainer-fname">{firstName}</p>
                 <p className="profilecard-namecontainer-lname">{lastName}</p>
+            </div>
+            <div className="profilecard-imagecontainer">
+                <img src={flag?.url} alt={flag?.alt}/>
+            </div>
+            <div className="profilecard-number">
+                <p>{driverNumber}</p>
             </div>
             <div className="profilecard-image">
                 <img src={image?.url} alt={image?.alt}/>
@@ -60,6 +70,7 @@ const Stylewrapper = styled.div`
     }
     .profilecard-namecontainer{
         margin-left: 20px;
+        margin-top: 10px;
         .profilecard-namecontainer-lname{
             margin-top: 0px;
         }
@@ -83,8 +94,26 @@ const Stylewrapper = styled.div`
         color: var(--f1-white);
         font-family: var(--font-play);
         position: absolute;
-        bottom: 0px;
+        bottom: 5%;
         left: 50%;
         transform: translateX(-50%);
+        font-weight: bold;
+    }
+    .profilecard-imagecontainer{
+        margin-left: 20px;
+        img{
+            border-radius: 15%;
+            border: 1px solid var(--f1-white);
+            width: 20%;
+        }
+    }
+    .profilecard-number{
+        opacity: 0.9;
+        color: var(--f1-white);
+        font-family: var(--font-acme);
+        font-size: 40px;
+        position: absolute;
+        top: 5%;
+        right: 10%;
     }
 `

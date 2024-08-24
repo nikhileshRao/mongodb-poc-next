@@ -6,4 +6,7 @@ export const typoStyles = css.global`
 
     //Play
     @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+    //acme
+    @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 `

@@ -5,5 +5,10 @@
         "url":"https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png",
         "alt": "Max Verstappen"
     },
-    "constructor" : "Red Bull Racing"
+    "constructor" : "Red Bull Racing",
+    "flag":{
+        "url":"https://media.formula1.com/d_default_fallback_image.png/content/dam/fom-website/flags/Netherlands.jpg",
+        "alt":"Netherlands"
+    },
+    "driverNumber": 1
 }
