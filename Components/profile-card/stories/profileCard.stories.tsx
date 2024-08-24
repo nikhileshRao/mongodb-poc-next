@@ -11,6 +11,8 @@ export const profileCard ={
         firstName: profileCardData?.firstName,
         lastName: profileCardData?.lastName,
         image : profileCardData?.image,
-        constructor: profileCardData?.constructor
+        constructor: profileCardData?.constructor,
+        flag: profileCardData?.flag,
+        driverNumber: profileCardData?.driverNumber
     }
 }
