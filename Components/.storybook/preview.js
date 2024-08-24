@@ -8,6 +8,7 @@ import { typoStyles } from "../public/styles/typography.ts";
 
 const preview = {
   parameters: {
+    layout: "fullscreen",
     controls: {
       matchers: {
         color: /(background|color)$/i,
