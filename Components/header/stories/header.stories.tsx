@@ -8,6 +8,8 @@ export default {
 
 export const header ={
     args:{
-        headerlogo: headerData?.icon
+        headerlogo: headerData?.icon,
+        placeholder: headerData?.placeholder,
+        enableSearchBar: headerData?.enableSearchBar
     }
 }
