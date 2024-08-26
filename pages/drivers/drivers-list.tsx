@@ -15,7 +15,7 @@ const driverslist: NextPage = (props: any) => {
     const { driverslistProps } = props;
     return(
         <Stylewrapper className='drivers-list'>
-            <Header headerlogo={config?.header?.icon}/>
+            <Header {...config?.header} enableSearchBar={true}/>
             <div className='drivers-list-profile'>
                 {driverslistProps.map((driver : any, key: any) => (
                     <ProfileCard {...driver} key={key}/>
