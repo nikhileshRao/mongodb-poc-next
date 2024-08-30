@@ -6,6 +6,7 @@ export interface HeaderProps {
     headerlogo ?: headerLogo
     enableSearchBar ?: boolean
     placeholder ?: string
+    onInputChange ?: any
 }
 
 export interface headerLogo {
@@ -16,7 +17,8 @@ export interface headerLogo {
 export const Header: React.FunctionComponent<HeaderProps> = ({
     headerlogo,
     placeholder,
-    enableSearchBar = false
+    enableSearchBar = false,
+    onInputChange
 }) =>{
     return (
         <Stylewrapper className="header" data-cy="Header">
@@ -25,7 +27,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
             </div>
             {enableSearchBar ? 
                 <div className="header-searchbar" >
-                    <SearchBar placeholder={placeholder}/>
+                    <SearchBar placeholder={placeholder} onInputChange={onInputChange}/>
                 </div>
             : null }
         </Stylewrapper>
