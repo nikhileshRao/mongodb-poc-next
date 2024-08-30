@@ -1,5 +1,6 @@
-// Default NextJS imports
+// Default NextJS and React imports
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
+import React, { useState } from 'react';
 
 //importing components
 import { ProfileCard } from "../../Components/profile-card/profileCard";
@@ -13,14 +14,24 @@ import { getDriverList } from "../../services/drivers-list/drivers-list.service"
 
 const driverslist: NextPage = (props: any) => {
     const { driverslistProps } = props;
+    const [filteredDrivers , setFilteredDrivers] = useState(driverslistProps);
+
+    const handleSearchInput = (inputValue ?: any ) => {
+
+        let filterList = driverslistProps.filter((driver ?: any) =>{
+            return driver.firstName.toLowerCase().includes(inputValue) || driver.lastName.toLowerCase().includes(inputValue);
+        })
+        setFilteredDrivers(filterList);
+    }
+
     return(
         <Stylewrapper className='drivers-list'>
-            <Header {...config?.header} enableSearchBar={true}/>
+            <Header {...config?.header} enableSearchBar={true} onInputChange={handleSearchInput}/>
             <div className='drivers-list-profile'>
-                {driverslistProps.map((driver : any, key: any) => (
+                {filteredDrivers.map((driver : any, key: any) => (
                     <ProfileCard {...driver} key={key}/>
                 ))}
-            </div>
+            </div> 
         </Stylewrapper>
     )
 }
